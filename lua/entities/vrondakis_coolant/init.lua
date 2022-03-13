@@ -26,7 +26,7 @@ function ENT:SpawnFunction( ply, tr )
 
 	local SpawnPos = tr.HitPos + tr.HitNormal * 1
 
-	local ent = ents.Create( "printer_cooler" )
+	local ent = ents.Create( "vrondakis_coolant" )
 	ent:SetPos( SpawnPos )
 	ent:Spawn()
 	ent:Activate()
