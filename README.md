@@ -1,23 +1,24 @@
-DarkRP Leveling System
+Unofficial DarkRP Leveling System
 ======================
-For DarkRP 2.7.0 and above. Adds leveling functionality and allows you to limit item purchasing based on a players level.
+This is not the official DarkRP Leveling System by Vrondakis. I will be keeping this up to date and constantly putting out new features.
+
+This leveling system is for DarkRP v2.7.x.  Adds leveling functionality and allows you to limit item purchasing based on players level.
 
 
 Features
 -------
-**7 Money Printers** - They work like normal printers, apart from the fact that they store money and XP.
+**Database Support** - This script integrates directly into DarkRP's database. Works with SQLite and MySQL. (No changes needed)
 
-**3 xp books** - Big, medium and small books that give you XP.
+**Gemstone Printers** - Implemented Gemstone Printers into the leveling system! Printers store mkoney and experience. They require coolant to function.
 
-**Database Support** - This script integrates directly into DarkRP's database. This means that it works with SQLite and MySQL! No tweaky setup required!
+**Experience Books** - Experience books grants players experience. Can be purchased with DarkRP money.
 
 **HUD** - The HUD looks good and provides level infomation to players. The XP bar is animated, and fits right in!
 
-**Easy Installation** - Drag and drop one folder
+**Easy Installation** - Drag and drop into Addons folder.
 
-**Supports future versions of DarkRP** - This script doesn't edit any of DarkRP's core files, so you don't have to worry about reinstalling the script when you update
+**Multiple Admin Mod Support** - Allows you to set levels and experience with ULX, SAM, and ServerGuard.
 
-**ULX Support and serverguard** - Allows you to set levels and add/remove XP with ULX or serverguard.
+**Configuration File** - An all in one configuration file allowing you to easily change everything.
 
-**Huge Configuration** - This script is VERY easy to customize. You can change everything from one file.
-
+**Supports future versions of DarkRP** - This script doesn't edit any of DarkRP's core files, so you don't have to worry about reinstalling the script when you update.
