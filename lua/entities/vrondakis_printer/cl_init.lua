@@ -48,7 +48,7 @@ function ENT:Draw()
 		
 		draw.DrawText( owner, "HUDNumber5", -TextWidth * 0, -125, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER )
 		draw.DrawText( text, "HUDNumber5", -TextWidth2 * 0, -55, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER )
-		draw.DrawText( amount, "HUDNumber5", -TextWidth3 * 0, 15, Color( 255, 255, 255 ) )
+		draw.DrawText( amount, "HUDNumber5", -TextWidth3 * 0, 15, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER )
 		draw.DrawText( hp, "HUDNumber5", -120, 77, Color( 255, 255, 255 ) )
 		draw.DrawText( cool, "HUDNumber5", 15, 77, Color( 255, 255, 255 ) )
 	cam.End3D2D()

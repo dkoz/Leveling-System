@@ -47,7 +47,7 @@ LevelSystemConfiguration.PrinterSound = true -- Give the printers sounds?
 LevelSystemConfiguration.PrinterMaxP = 0 -- How many times a printer can print before stopping. Change this to 0 if you want infine.
 LevelSystemConfiguration.PrinterMax = 3 -- How many printers of a certain type a player can own at any one time
 LevelSystemConfiguration.PrinterOverheat = false -- Can printers overheat?
-LevelSystemConfiguration.PrinterTime = 120 -- How long it takes printers to print
+LevelSystemConfiguration.PrinterTime = 30 -- How long it takes printers to print
 LevelSystemConfiguration.PrinterCanCollect = true -- Can players collect from printers that are 5 levels above their level? (Recommended: false)
 LevelSystemConfiguration.PrinterEpilepsy = true -- If printers flash different colors when they have money in them.
 
@@ -76,6 +76,7 @@ table.insert(Printers,Printer) -- Leave this line
 local Printer={}
 Printer.Name = "Topaz Printer"
 Printer.Type = "topazprinter"
+Printer.Category = "Gemstone Printers"
 Printer.XPPerPrint = 65
 Printer.MoneyPerPrint = 100
 Printer.Color = Color( 242, 207, 107, 255 )
@@ -88,6 +89,7 @@ table.insert(Printers,Printer)
 local Printer={}
 Printer.Name = "Amethyst Printer"
 Printer.Type = "amethystprinter"
+Printer.Category = "Gemstone Printers"
 Printer.XPPerPrint = 300
 Printer.MoneyPerPrint = 300
 Printer.Color = Color( 153, 102, 204, 255 )
@@ -100,6 +102,7 @@ table.insert(Printers,Printer)
 local Printer={}
 Printer.Name = "Emerald Printer"
 Printer.Type = "emeraldprinter"
+Printer.Category = "Gemstone Printers"
 Printer.XPPerPrint = 1069
 Printer.MoneyPerPrint = 1200
 Printer.Color = Color( 0, 112, 60, 255 )
@@ -112,6 +115,7 @@ table.insert(Printers,Printer)
 local Printer={}
 Printer.Name = "Ruby Printer"
 Printer.Type = "rubyprinter"
+Printer.Category = "Gemstone Printers"
 Printer.XPPerPrint = 1800
 Printer.MoneyPerPrint = 1500
 Printer.Color = Color( 224, 17, 95, 255 )
@@ -124,6 +128,7 @@ table.insert(Printers,Printer)
 local Printer={}
 Printer.Name = "Sapphire Printer"
 Printer.Type = "sapphireprinter"
+Printer.Category = "Gemstone Printers"
 Printer.XPPerPrint = 2500
 Printer.MoneyPerPrint = 5000
 Printer.Color = Color( 15, 82, 186, 255 )
