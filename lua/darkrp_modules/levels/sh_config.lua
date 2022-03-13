@@ -15,7 +15,7 @@ LevelSystemConfiguration.BarText = true -- Is the bar text enabled?
 LevelSystemConfiguration.XPTextColor = Color(255,255,255,255) -- The color of the XP percentage HUD element.
 LevelSystemConfiguration.LevelBarColor = {6,116,255} -- The color of the XP bar. (Sorry this one is different. It is still {R,G,B})
 LevelSystemConfiguration.XPBarYPos = 0 -- Y position of the XP bar
-LevelSystemConfiguration.LevelText = true -- Enable the white text on left bottom?
+LevelSystemConfiguration.LevelText = false -- Enable the white text on left bottom?
 LevelSystemConfiguration.LevelColor = Color(255,255,255,255) -- The color of the "Level: 1" HUD element. White looks best. (This setting is nullified if you have the prestige system)
 LevelSystemConfiguration.LevelTextPos = {1.5, 180.0} -- The position of the LevelText. Y starts from bottom. Fiddle with it
 LevelSystemConfiguration.DisplayLevel = true -- Show player levels when you look at them
@@ -44,8 +44,8 @@ LevelSystemConfiguration.BoughtXP = true -- Does the player gain xp from buying 
 
 //Printer settings
 LevelSystemConfiguration.PrinterSound = true -- Give the printers sounds?
-LevelSystemConfiguration.PrinterMaxP = 4 -- How many times a printer can print before stopping. Change this to 0 if you want infine.
-LevelSystemConfiguration.PrinterMax = 4 -- How many printers of a certain type a player can own at any one time
+LevelSystemConfiguration.PrinterMaxP = 0 -- How many times a printer can print before stopping. Change this to 0 if you want infine.
+LevelSystemConfiguration.PrinterMax = 3 -- How many printers of a certain type a player can own at any one time
 LevelSystemConfiguration.PrinterOverheat = false -- Can printers overheat?
 LevelSystemConfiguration.PrinterTime = 120 -- How long it takes printers to print
 LevelSystemConfiguration.PrinterCanCollect = true -- Can players collect from printers that are 5 levels above their level? (Recommended: false)
@@ -74,86 +74,62 @@ table.insert(Printers,Printer) -- Leave this line
 
 // Default printers:
 local Printer={}
-Printer.Name = "Regular Printer"
-Printer.Type = "regularprinter"
+Printer.Name = "Topaz Printer"
+Printer.Type = "topazprinter"
 Printer.XPPerPrint = 65
 Printer.MoneyPerPrint = 100
-Printer.Color = Color(255,255,255,255)
-Printer.Model = "models/props_lab/reciever01b.mdl"
+Printer.Color = Color( 242, 207, 107, 255 )
+Printer.Model = "models/props_c17/consolebox01a.mdl"
 Printer.Price = 1000
 Printer.Level = 1
 Printer.Prestige = 0
 table.insert(Printers,Printer)
 
 local Printer={}
-Printer.Name = "Golden Money Printer"
-Printer.Type = "goldenprinter"
+Printer.Name = "Amethyst Printer"
+Printer.Type = "amethystprinter"
 Printer.XPPerPrint = 300
 Printer.MoneyPerPrint = 300
-Printer.Color = Color(255,215,0)
-Printer.Model = "models/props_lab/reciever01b.mdl"
+Printer.Color = Color( 153, 102, 204, 255 )
+Printer.Model = "models/props_c17/consolebox01a.mdl"
 Printer.Price = 3000
 Printer.Level = 10
 Printer.Prestige = 0
 table.insert(Printers,Printer)
 
 local Printer={}
-Printer.Name = "Ruby Money Printer"
-Printer.Type = "rubyprinter"
+Printer.Name = "Emerald Printer"
+Printer.Type = "emeraldprinter"
 Printer.XPPerPrint = 1069
 Printer.MoneyPerPrint = 1200
-Printer.Color = Color(255,0,0)
-Printer.Model = "models/props_lab/reciever01a.mdl"
+Printer.Color = Color( 0, 112, 60, 255 )
+Printer.Model = "models/props_c17/consolebox01a.mdl"
 Printer.Price = 5000
 Printer.Level = 20
 Printer.Prestige = 0
 table.insert(Printers,Printer)
 
 local Printer={}
-Printer.Name = "Platinum Money Printer"
-Printer.Type = "platprinter"
+Printer.Name = "Ruby Printer"
+Printer.Type = "rubyprinter"
 Printer.XPPerPrint = 1800
 Printer.MoneyPerPrint = 1500
-Printer.Color = Color(255,255,255)
-Printer.Model = "models/props_c17/consolebox03a.mdl"
+Printer.Color = Color( 224, 17, 95, 255 )
+Printer.Model = "models/props_c17/consolebox01a.mdl"
 Printer.Price = 10000
 Printer.Level = 30
 Printer.Prestige = 0
 table.insert(Printers,Printer)
 
 local Printer={}
-Printer.Name = "Diamond Money Printer"
-Printer.Type = "diamondprinter"
+Printer.Name = "Sapphire Printer"
+Printer.Type = "sapphireprinter"
 Printer.XPPerPrint = 2500
 Printer.MoneyPerPrint = 5000
-Printer.Color = Color(135,200,250)
+Printer.Color = Color( 15, 82, 186, 255 )
 Printer.Model = "models/props_c17/consolebox01a.mdl"
 Printer.Price = 50000
 Printer.Level = 40
-Printer.Prestige = 0
-table.insert(Printers,Printer)
-
-local Printer={}
-Printer.Name = "Emerald Money Printer"
-Printer.Type = "emeraldprinter"
-Printer.XPPerPrint = 3550
-Printer.MoneyPerPrint = 10000
-Printer.Color = Color(0,100,0)
-Printer.Model = "models/props_c17/consolebox01a.mdl"
-Printer.Price = 100000
-Printer.Level = 50
-Printer.Prestige = 0
-table.insert(Printers,Printer)
-
-local Printer={}
-Printer.Name = "Unubtainium Money Printer"
-Printer.Type = "unubprinter"
-Printer.XPPerPrint = 3500
-Printer.MoneyPerPrint = 15000
-Printer.Color = Color(255,255,255)
-Printer.Model = "models/props_lab/harddrive01.mdl"
-Printer.Price = 120000
-Printer.Level = 60
 Printer.Prestige = 0
 table.insert(Printers,Printer)
 
@@ -171,7 +147,7 @@ Book.CustomCheckFailMsg = "This book is vip only" -- Message to display if the p
 table.insert(Books,Book) -- Leave this line
 */
 
-// Default books:
+/* // Default books:
 local Book={}
 Book.Name = "Small Book"
 Book.Type = "smallbook"
@@ -204,32 +180,9 @@ Book.XP = 5000
 Book.Level = 1
 Book.Prestige = 0
 table.insert(Books,Book)
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 // Ignore everything under this line.
-
-
-
-
-
-
-
-
-
-
-
-
 
 local en_language = {
 	lvl_buy_entity = "You\'re not the right level to buy this!", -- Error message when someone can't buy an entity
