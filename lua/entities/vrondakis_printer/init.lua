@@ -34,20 +34,21 @@ function ENT:Initialize()
 	self:SetNWInt("MoneyPerPrint", self.DarkRPItem.vrondakisMoneyPerPrint or 0)
 	self:SetNWInt("MoneyAmount", 0)
 	self:SetNWInt("MaxConfig",self.DarkRPItem.vrondakisPrinterMaxP or 1)
+	self:SetNWInt("Health", 100)
+	self:SetNWInt("Cooler", 50)
 
 	self:SetUseType(SIMPLE_USE)
-
-
-
 end
 
 function ENT:OnTakeDamage(dmg)
 	if self.burningup then return end
 
-	self.damage = (self.damage or 100) - dmg:GetDamage()
+	self.damage = (self.damage or 100) - math.ceil(dmg:GetDamage())
+	self:SetNWInt( "Health", self.damage )
 	if self.damage <= 0 then
+		self:SetNWInt("Health", 0)
 		local rnd = math.random(1, 10)
-		if rnd < 3 then
+		if rnd < 6 then
 			self:BurstIntoFlames()
 		else
 			self:Destruct()
@@ -65,6 +66,16 @@ function ENT:Destruct()
 	util.Effect("Explosion", effectdata)
 	if(IsValid(self:Getowning_ent())) then
 		DarkRP.notify(self:Getowning_ent(), 1, 4, DarkRP.getPhrase("money_printer_exploded"))
+	end
+end
+
+function ENT:StartTouch(hitEnt)
+	if hitEnt.IsCooler then
+		self.Cooler = hitEnt
+		local CoolantLevels = self:GetNWInt( "Cooler" )
+		local amount = CoolantLevels + 50
+		self:SetNWInt( "Cooler", amount ) 
+		self.Cooler:Remove()
 	end
 end
 
@@ -123,6 +134,23 @@ function ENT:CreateMoneybag()
 		self.StoredXP = self.StoredXP + xpamount
 		self:SetNWInt("MoneyAmount", self.StoredMoney)
 	end
+	
+	local coolerempty = self:GetNWInt( "Cooler" ) - 2
+	self:SetNWInt( "Cooler", coolerempty )
+	
+	timer.Simple( 2, function()
+		if self.damage <= 99 then
+			self.damage = self.damage + 1
+			self:SetNWInt( "Health", self.damage )
+		end
+	end )
+	
+	timer.Simple( 2, function()
+		if coolerempty <= 0 then
+			self.damage = self.damage - math.random( 10, 50 )
+			self:SetNWInt( "Health", self.damage )
+		end
+	end )
 
 	self.sparking = false
 	timer.Simple(self.DarkRPItem.vrondakisPrinterTime,function() PrintMore(self) end)
@@ -172,8 +200,8 @@ function ENT:Use(activator,caller)
 		end
 	end
 end
-function ENT:Think()
 
+function ENT:Think()
 	if self:WaterLevel() > 0 then
 		self:Destruct()
 		self:Remove()
@@ -189,6 +217,21 @@ function ENT:Think()
 			self:SetColor(Color(Rr,Rb,Rc))
 		end
 	end
+	
+	local cooler = self:GetNWInt( "Cooler" )
+	if cooler > 100 then
+		self:SetNWInt( "Cooler", 100 )
+	end
+	
+	if cooler < 0 then
+		self:SetNWInt( "Cooler", 0 )
+	end
+	
+	if self.damage < 0 then
+		self:Destruct()
+		self:Remove()
+		return
+	end
 
 	if not self.sparking then return end
 
@@ -198,9 +241,6 @@ function ENT:Think()
 	effectdata:SetScale(1)
 	effectdata:SetRadius(2)
 	util.Effect("Sparks", effectdata)
-
-
-
 end
 
 function ENT:OnRemove()
