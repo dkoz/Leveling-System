@@ -9,11 +9,11 @@ Features
 -------
 **Database Support** - This script integrates directly into DarkRP's database. Works with SQLite and MySQL. (No changes needed)
 
-**Gemstone Printers** - Implemented Gemstone Printers into the leveling system! Printers store mkoney and experience. They require coolant to function.
+**Gemstone Printers** - Implemented Gemstone Printers into the leveling system! Printers store money and experience. They require coolant to function.
 
 **Experience Books** - Experience books grants players experience. Can be purchased with DarkRP money.
 
-**HUD** - The HUD looks good and provides level infomation to players. The XP bar is animated, and fits right in!
+**HUD** - The HUD looks good and provides level information to players. The XP bar is animated, and fits right in!
 
 **Easy Installation** - Drag and drop into Addons folder.
 
